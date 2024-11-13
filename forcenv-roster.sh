@@ -1,0 +1,6 @@
+Forum="https://discourse.mckblog.net"
+AppName="forceapps"
+Client_Id=""
+UserApiKey=""
+Category="5"
+Slug="gene-rosters"
