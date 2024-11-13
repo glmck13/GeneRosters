@@ -75,10 +75,10 @@ def do_edit():
 	elif Action == "submit":
 		print("<html>")
 		exec('global TableRow; TableRow = [{}]'.format(','.join(TableCols)))
-		if Remove:
-			Table.pop(UserName)
-		else:
+		if not Remove:
 			Table[UserName] = TableRow[1:]
+		elif UserName in Table:
+			Table.pop(UserName)
 
 		delay = 0
 
@@ -108,14 +108,23 @@ def do_edit():
 		print("<h3>Unable to access {}</h3>".format(Forum))
 		print("</html>")
 
-def do_create():
+def do_addrmv():
 	global QueryString, Roster, UserName, Token, Action
 	for x in sys.argv[1:]:
 
 		x = x.split(":")
 		x.append("")
-		r = x[0]
 		u = x[1]
+		if len(x[0]) > 0:
+			c = x[0][0]
+			r = x[0][1:]
+		else:
+			c = "?"
+			r = "?"
+
+		if c not in ("+", "-"):
+			print("Need to specify +/-: {}".format(x[0]), file=sys.stderr)
+			continue
 
 		if not RosterData.get(r):
 			print("Roster '{}' not found!".format(r), file=sys.stderr)
@@ -141,24 +150,29 @@ def do_create():
 		q = "username={}&token={}&roster={}".format(UserName, Token, Roster)
 
 		QueryString = q + "&action=submit"
+		if c == "-":
+			QueryString += "&remove=on"
+
 		do_edit()
 
-		r = RosterData[r]
-		MsgSubj = r["MsgSubj"]
-		MsgBody = r["MsgBody"]
+		if c == "+":
+			r = RosterData[r]
+			MsgSubj = r["MsgSubj"]
+			MsgBody = r["MsgBody"]
 
-		url = "{}/cgi/force-roster.cgi?".format(Helper) + q + "&action=form"
-		message = {}
-		message["title"] = MsgSubj
-		message["raw"] = MsgBody.format(url)
-		message["target_recipients"] = UserName
-		message["archetype"] = "private_message"
-		print(message["raw"], file=sys.stderr)
-		try:
-			Reply = requests.post(Forum + "/posts.json", headers=Headers, json=message).json()
-		except:
-			Reply = {}
-		#print(Reply, file=sys.stderr)
+			url = "{}/cgi/force-roster.cgi?".format(Helper) + q + "&action=form"
+			message = {}
+			message["title"] = MsgSubj
+			message["raw"] = MsgBody.format(url)
+			message["target_recipients"] = UserName
+			message["archetype"] = "private_message"
+			print(message["raw"], file=sys.stderr)
+			try:
+				Reply = requests.post(Forum + "/posts.json", headers=Headers, json=message).json()
+			except:
+				Reply = {}
+			#print(Reply, file=sys.stderr)
+
 		time.sleep(15)
 
 def do_like():
@@ -184,7 +198,7 @@ def do_like():
 			if like["read"]:
 				continue
 
-			print("{}:{}".format(Roster, like["data"]["original_username"]))
+			print("+{}:{}".format(Roster, like["data"]["original_username"]))
 
 			if not Dismiss:
 				continue
@@ -214,7 +228,7 @@ Action = ""
 TableRow = []
 
 if len(sys.argv) > 1:
-	do_create()
+	do_addrmv()
 elif Method:
 	do_edit()
 else:
