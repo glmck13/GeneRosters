@@ -112,7 +112,7 @@ def do_addrmv():
 	global QueryString, Roster, UserName, Token, Action
 	for x in sys.argv[1:]:
 
-		x = x.split(":")
+		x = x.split("/")
 		x.append("")
 		u = x[1]
 		if len(x[0]) > 0:
@@ -198,7 +198,7 @@ def do_like():
 			if like["read"]:
 				continue
 
-			print("+{}:{}".format(Roster, like["data"]["original_username"]))
+			print("+{}/{}".format(Roster, like["data"]["original_username"]))
 
 			if not Dismiss:
 				continue
