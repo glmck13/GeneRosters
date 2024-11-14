@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#DISCOURSE_SERVER="https://try.discourse.org"
 DISCOURSE_SERVER="https://discourse.mckblog.net"
 APPLICATION_NAME="forceapps"
 PRIVATE_KEY_FILE=/tmp/discourse-private.pem
