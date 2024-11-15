@@ -8,17 +8,13 @@ CDH1
 CDKN2A
 CDK4
 CHEK2
-EPCAM (Lynch syndrome)
 HOXB13
-MLH1 (Lynch syndrome)
-MSH2 (Lynch syndrome)
-MSH6 (Lynch syndrome)
 MUTYH
 NBN
 PALB2
-PMS2 (Lynch syndrome)
 PTEN (Cowden syndrome)
 RAD51C
 RAD51D
 STK11 (Peutz-Jeghers syndrome)
 TP53 (Li-Fraumeni syndrome)
+Lynch syndrome (MLH1, MSH2, MSH6, PMS2, EPCAM)
