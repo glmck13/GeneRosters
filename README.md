@@ -46,14 +46,31 @@ ln -s ../../bin/force-roster.sh force-roster.cgi
 + Populate Slug and Category in /var/www/bin/forcenv-roster.sh using the values for _slug_ and _id_ obtained above.
 
 ### Create rosters
-+ Create Discourse topics for all the gene rosters:
++ Create Discourse topics for all the gene rosters, and afterwards, tweak the topic names in Discourse as desired (e.g. add back the "syndrome" names):
 ```
-/var/www/bin/force-topics.sh $(cut -f1 -d' ' genes.txt)
+cd /var/www/bin; ./force-topics.sh $(cut -f1 -d' ' genes.txt)
 ```
 
 + Retrieve Discourse numerical ids for all of the topics and posts:
 ```
-/var/www/bin/force-topics.sh
+cd /var/www/bin; ./force-topics.sh
 ```
 
  + Edit /var/www/bin/forcenv_roster.py to fill in values for RosterData[]["Topic"] and RosterData[]["Post"] based on the above.
+
+### Format the initial roster posts and validate user forms
++ The roster posts created above are simply dummy entries; they don't yet contain any user tables.  We'll format the posts by creating an initial entry for the account selected as the roster custodian (replace "custodian" in the following command with the actual account name):
+```
+cd /var/www/bin; ./force-roster.sh $(cut -f1 -d' ' genes.txt | sed -e "s?\(.*\)?+\L\1/custodian?g")
+```
+
++ When a roster entry gets created, the software sends a Discourse message to the impacted user containing a link to edit/delete their entry.  Access these roster messages and try out the links to verify everything functions properly.  Once finished, go ahead and delete the custodian entries on each roster (again, replace "custodian" in the following command with the actual account name):
+```
+cd /var/www/bin; ./force-roster.sh $(cut -f1 -d' ' genes.txt | sed -e "s?\(.*\)?-\L\1/custodian?g")
+```
+
+### Create a cron entry for www-data to poll for LIKEs every 5 minutes
++ Append the following entry to the crontab for www-data:
+```
+*/5 * * * * $HOME/bin/force-rosterpoll.sh >>/tmp/force-roster.log 2>&1
+```
