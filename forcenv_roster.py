@@ -103,8 +103,8 @@ GenericScript = '''
 
 RosterData = {
 	"lynch": {
-		"Topic":	10,
-		"Post": 	11,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"Lynch syndrome roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your Lynch info",
@@ -141,8 +141,8 @@ RosterData = {
 	},
 
 	"brca1": {
-		"Topic":	15,
-		"Post": 	16,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"BRCA1 mutation roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your BRCA1 info",
@@ -152,8 +152,8 @@ RosterData = {
 	},
 
 	"brca2": {
-		"Topic":	38,
-		"Post": 	39,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"BRCA2 mutation roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your BRCA2 info",
@@ -163,8 +163,8 @@ RosterData = {
 	},
 
 	"bard1": {
-		"Topic":	37,
-		"Post": 	38,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"BARD1 mutation roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your BARD1 info",
@@ -174,8 +174,8 @@ RosterData = {
 	},
 
 	"brip1": {
-		"Topic":	32,
-		"Post": 	33,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"BRIP1 mutation roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your BRIP1 info",
@@ -185,8 +185,8 @@ RosterData = {
 	},
 
 	"apc": {
-		"Topic":	36,
-		"Post": 	37,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"APC mutation roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your APC info",
@@ -196,8 +196,8 @@ RosterData = {
 	},
 
 	"atm": {
-		"Topic":	26,
-		"Post": 	27,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"ATM mutation roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your ATM info",
@@ -207,8 +207,8 @@ RosterData = {
 	},
 
 	"tp53": {
-		"Topic":	42,
-		"Post": 	43,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"TP53 mutation roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your TP53 info",
@@ -218,8 +218,8 @@ RosterData = {
 	},
 
 	"rad51c": {
-		"Topic":	41,
-		"Post": 	42,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"RAD51C mutation roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your RAD51C info",
@@ -229,8 +229,8 @@ RosterData = {
 	},
 
 	"rad51d": {
-		"Topic":	34,
-		"Post": 	35,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"RAD51D mutation roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your RAD51D info",
@@ -240,8 +240,8 @@ RosterData = {
 	},
 
 	"mutyh": {
-		"Topic":	40,
-		"Post": 	41,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"MUTYH mutation roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your MUTYH info",
@@ -251,8 +251,8 @@ RosterData = {
 	},
 
 	"hoxb13": {
-		"Topic":	39,
-		"Post": 	40,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"HOXB13 mutation roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your HOXB13 info",
@@ -262,8 +262,8 @@ RosterData = {
 	},
 
 	"pten": {
-		"Topic":	43,
-		"Post": 	44,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"PTEN mutation roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your PTEN info",
@@ -273,8 +273,8 @@ RosterData = {
 	},
 
 	"palb2": {
-		"Topic":	31,
-		"Post": 	32,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"PALB2 mutation roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your PALB2 info",
@@ -284,8 +284,8 @@ RosterData = {
 	},
 
 	"stk11": {
-		"Topic":	35,
-		"Post": 	36,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"STK11 mutation roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your STK11 info",
@@ -295,8 +295,8 @@ RosterData = {
 	},
 
 	"nbn": {
-		"Topic":	30,
-		"Post": 	31,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"NBN mutation roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your NBN info",
@@ -306,8 +306,8 @@ RosterData = {
 	},
 
 	"cdk4": {
-		"Topic":	29,
-		"Post": 	30,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"CDK4 mutation roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your CDK4 info",
@@ -317,8 +317,8 @@ RosterData = {
 	},
 
 	"cdkn2a": {
-		"Topic":	33,
-		"Post": 	34,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"CDKN2A mutation roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your CDKN2A info",
@@ -328,8 +328,8 @@ RosterData = {
 	},
 
 	"cdh1": {
-		"Topic":	28,
-		"Post": 	29,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"CDH1 mutation roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your CDH1 info",
@@ -339,8 +339,8 @@ RosterData = {
 	},
 
 	"chek2": {
-		"Topic":	25,
-		"Post": 	26,
+		"Topic":	0,
+		"Post": 	0,
 		"PostSubj": 	"CHEK2 mutation roster",
 		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
 		"MsgSubj": 	"Link to edit your CHEK2 info",
