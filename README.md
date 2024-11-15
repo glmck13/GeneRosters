@@ -63,7 +63,7 @@ cd $HOME/bin; ./force-roster.sh $(cut -f1 -d' ' genes.txt | sed -e "s?\(.*\)?+\L
 cd $HOME/bin; ./force-roster.sh $(cut -f1 -d' ' genes.txt | sed -e "s?\(.*\)?-\L\1/custodian?g")
 ```
 
-### Create a cron entry for www-data to poll for LIKEs every 5 minutes
+### Create a www-data cron entry to poll for LIKEs every 5 minutes
 + Append the following entry to the crontab for www-data:
 ```
 */5 * * * * $HOME/bin/force-rosterpoll.sh >>/tmp/force-roster.log 2>&1
