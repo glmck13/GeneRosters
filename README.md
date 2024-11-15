@@ -56,4 +56,4 @@ ln -s ../../bin/force-roster.sh force-roster.cgi
 /var/www/bin/force-topics.sh
 ```
 
- + Edit /var/www/bin/forcenv_roster.py to fill in values for RosterData[]["Topic"] and RosterData[]["Post"].
+ + Edit /var/www/bin/forcenv_roster.py to fill in values for RosterData[]["Topic"] and RosterData[]["Post"] based on the above.
