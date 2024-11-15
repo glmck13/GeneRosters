@@ -40,32 +40,32 @@ ln -s ../../bin/force-roster.sh force-roster.cgi
 ```
 
 ### Generate User API Key to interact with Discourse
-+ Choose an account on your Discourse platform to function as a roster custodian.  This can be any account on Discourse, and does not require Discourse administrator or moderator privileges.  Next, run the /var/www/bin/forceapps.sh script, open the link it generates, authorize access for "forceapps" under your Discourse account, then copy the string returned by Discourse and paste it back into the forceapps.sh script.  If all goes well, the script will output a Client_Id and UserApiKey on the next lines.
-+ Poplate the Client_id and UserApiKey variables within /var/www/bin/forcenv-roster.sh and /var/www/bin/forcenv_roster.py using the values output by the script.
-+ Populate the Slug and Category variables within /var/www/bin/forcenv-roster.sh using the values for _slug_ and _id_ obtained earlier.
++ Choose an account on your Discourse platform to function as a roster custodian.  This can be any account on Discourse, and does not require Discourse administrator or moderator privileges.  Next, run the $HOME/bin/forceapps.sh script, open the link it generates, authorize access for "forceapps" under your Discourse account, then copy the string returned by Discourse and paste it back into the forceapps.sh script.  If all goes well, the script will output a Client_Id and UserApiKey on the next lines.
++ Poplate the Client_id and UserApiKey variables within $HOME/bin/forcenv-roster.sh and $HOME/bin/forcenv_roster.py using the values output by the script.
++ Populate the Slug and Category variables within $HOME/bin/forcenv-roster.sh using the values for _slug_ and _id_ obtained earlier.
 
 ### Create rosters
 + Create Discourse topics for all the gene rosters, and afterwards, tweak the topic names in Discourse as desired (e.g. add back the "syndrome" names):
 ```
-cd /var/www/bin; ./force-topics.sh $(cut -f1 -d' ' genes.txt)
+cd $HOME/bin; ./force-topics.sh $(cut -f1 -d' ' genes.txt)
 ```
 
 + Retrieve Discourse numerical ids for all the topics and posts:
 ```
-cd /var/www/bin; ./force-topics.sh
+cd $HOME/bin; ./force-topics.sh
 ```
 
- + Edit /var/www/bin/forcenv_roster.py to fill in values for RosterData[]["Topic"] and RosterData[]["Post"] based on the above.
+ + Edit $HOME/bin/forcenv_roster.py to fill in values for RosterData[]["Topic"] and RosterData[]["Post"] based on the above.
 
 ### Format the initial roster posts and validate user forms
 + The roster posts created above are simply dummy entries; they don't yet contain any user tables.  We'll format the posts by creating an initial entry for the account selected as the roster custodian (replace "custodian" in the following command with the actual account name):
 ```
-cd /var/www/bin; ./force-roster.sh $(cut -f1 -d' ' genes.txt | sed -e "s?\(.*\)?+\L\1/custodian?g")
+cd $HOME/bin; ./force-roster.sh $(cut -f1 -d' ' genes.txt | sed -e "s?\(.*\)?+\L\1/custodian?g")
 ```
 
 + When a roster entry gets created, the software sends a Discourse message to the impacted user containing a link to edit/delete their entry.  Access these roster messages and try out the links to verify everything functions properly.  Once finished, go ahead and delete the custodian entries on each roster (again, replace "custodian" in the following command with the actual account name):
 ```
-cd /var/www/bin; ./force-roster.sh $(cut -f1 -d' ' genes.txt | sed -e "s?\(.*\)?-\L\1/custodian?g")
+cd $HOME/bin; ./force-roster.sh $(cut -f1 -d' ' genes.txt | sed -e "s?\(.*\)?-\L\1/custodian?g")
 ```
 
 ### Create a cron entry for www-data to poll for LIKEs every 5 minutes
