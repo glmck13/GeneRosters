@@ -35,15 +35,14 @@ sed -i -e "s/^\([[:space:]]*Options Indexes FollowSymLinks\)$/\1 ExecCGI/" /etc/
 
 + Next, create a CGI link under /var/www/html to service user forms:
 ```
-cd /var/www/html
-mkdir cgi; cd cgi
+cd /var/www/html; mkdir cgi; cd cgi
 ln -s ../../bin/force-roster.sh force-roster.cgi
 ```
 
-### Generate User API Key
-+ Choose an account on your Discourse server to function as a roster custodian.  This can be any account on Discourse, and does not require Discourse administrator or moderator privileges.  Next, run the /var/www/bin/forceapps.sh script, open the link it generates, authorize access for "forceapps" under your Discourse account, then copy the string returned by Discourse and paste it back into the forceapps.sh script.  If all goes well, the script will output a Client_Id and UserApiKey on the next lines.
-+ Poplate Client_id and UserApiKey within /var/www/bin/forcenv-roster.sh and /var/www/bin/forcenv_roster.py.
-+ Populate Slug and Category in /var/www/bin/forcenv-roster.sh using the values for _slug_ and _id_ obtained above.
+### Generate User API Key to interact with Discourse
++ Choose an account on your Discourse platform to function as a roster custodian.  This can be any account on Discourse, and does not require Discourse administrator or moderator privileges.  Next, run the /var/www/bin/forceapps.sh script, open the link it generates, authorize access for "forceapps" under your Discourse account, then copy the string returned by Discourse and paste it back into the forceapps.sh script.  If all goes well, the script will output a Client_Id and UserApiKey on the next lines.
++ Poplate the Client_id and UserApiKey variables within /var/www/bin/forcenv-roster.sh and /var/www/bin/forcenv_roster.py using the values output by the script.
++ Populate the Slug and Category variables within /var/www/bin/forcenv-roster.sh using the values for _slug_ and _id_ obtained earlier.
 
 ### Create rosters
 + Create Discourse topics for all the gene rosters, and afterwards, tweak the topic names in Discourse as desired (e.g. add back the "syndrome" names):
@@ -51,7 +50,7 @@ ln -s ../../bin/force-roster.sh force-roster.cgi
 cd /var/www/bin; ./force-topics.sh $(cut -f1 -d' ' genes.txt)
 ```
 
-+ Retrieve Discourse numerical ids for all of the topics and posts:
++ Retrieve Discourse numerical ids for all the topics and posts:
 ```
 cd /var/www/bin; ./force-topics.sh
 ```
