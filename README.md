@@ -31,7 +31,7 @@ sed -i -e "s/^\([[:space:]]*Options Indexes FollowSymLinks\)$/\1 ExecCGI/" /etc/
 ### Install application files
 + We’ll be installing application-related files under www-data, so edit /etc/passwd to change the login shell for www-data from /usr/sbin/nologin to /bin/bash.  Become www-data by executing by executing: sudo su – www-data
 
-+ mkdir bin and tmp directories under /var/www, download all the .sh and .py files from this repository into /var/www/bin, and make the files executable: chmod +x *.sh *.py
++ mkdir bin and tmp directories under /var/www, download all the .sh, .py, and .txt files from this repository into /var/www/bin, and make the .sh and .py files executable: chmod +x *.sh *.py
 
 + Next, create a CGI link under /var/www/html to service user forms:
 ```
@@ -41,4 +41,19 @@ ln -s ../../bin/force-roster.sh force-roster.cgi
 ```
 
 ### Generate User API Key
-+ Choose an account on your Discourse server to function as a roster custodian.  This can be any account on Discourse, and does not require Discourse administrator or moderator privileges.  Next, run the /var/www/bin/forceapps.sh script, open the link it generates, authorize access for "forceapps" under your Discourse account, then copy the string returned by Discourse and paste it back into the forceapps.sh script.  If all goes well, the script will output your Client_Id and UserApiKey key on the next line.
++ Choose an account on your Discourse server to function as a roster custodian.  This can be any account on Discourse, and does not require Discourse administrator or moderator privileges.  Next, run the /var/www/bin/forceapps.sh script, open the link it generates, authorize access for "forceapps" under your Discourse account, then copy the string returned by Discourse and paste it back into the forceapps.sh script.  If all goes well, the script will output a Client_Id and UserApiKey on the next lines.
++ Poplate Client_id and UserApiKey within /var/www/bin/forcenv-roster.sh and /var/www/bin/forcenv_roster.py.
++ Populate Slug and Category in /var/www/bin/forcenv-roster.sh using the values for _slug_ and _id_ obtained above.
+
+### Create rosters
++ Create Discourse topics for all the gene rosters:
+```
+/var/www/bin/force-topics.sh $(cut -f1 -d' ' genes.txt)
+```
+
++ Retrieve Discourse numerical ids for all of the topics and posts:
+```
+/var/www/bin/force-topics.sh
+```
+
+ + Edit /var/www/bin/forcenv_roster.py to fill in values for RosterData[]["Topic"] and RosterData[]["Post"].
