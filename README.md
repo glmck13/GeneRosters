@@ -30,9 +30,7 @@ sed -i -e "s/^\([[:space:]]*Options Indexes FollowSymLinks\)$/\1 ExecCGI/" /etc/
 
 ### Install application files
 + We’ll be installing application-related files under www-data, so edit /etc/passwd to change the login shell for www-data from /usr/sbin/nologin to /bin/bash.  Become www-data by executing by executing: sudo su – www-data
-
 + mkdir bin and tmp directories under /var/www, download all the .sh, .py, and .txt files from this repository into /var/www/bin, and make the .sh and .py files executable: chmod +x *.sh *.py
-
 + Next, create a CGI link under /var/www/html to service user forms:
 ```
 cd /var/www/html; mkdir cgi; cd cgi
@@ -49,12 +47,10 @@ ln -s ../../bin/force-roster.sh force-roster.cgi
 ```
 cd $HOME/bin; ./force-topics.sh $(cut -f1 -d' ' genes.txt)
 ```
-
 + Retrieve Discourse numerical ids for all the topics and posts:
 ```
 cd $HOME/bin; ./force-topics.sh
 ```
-
  + Edit $HOME/bin/forcenv_roster.py to fill in values for RosterData[]["Topic"] and RosterData[]["Post"] based on the above.
 
 ### Format the initial roster posts and validate user forms
@@ -62,7 +58,6 @@ cd $HOME/bin; ./force-topics.sh
 ```
 cd $HOME/bin; ./force-roster.sh $(cut -f1 -d' ' genes.txt | sed -e "s?\(.*\)?+\L\1/custodian?g")
 ```
-
 + When a roster entry gets created, the software sends a Discourse message to the impacted user containing a link to edit/delete their entry.  Access these roster messages and try out the links to verify everything functions properly.  Once finished, go ahead and delete the custodian entries on each roster (again, replace "custodian" in the following command with the actual account name):
 ```
 cd $HOME/bin; ./force-roster.sh $(cut -f1 -d' ' genes.txt | sed -e "s?\(.*\)?-\L\1/custodian?g")
