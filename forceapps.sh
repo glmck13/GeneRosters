@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#DISCOURSE_SERVER="https://messageboard.facingourrisk.org"
+#DISCOURSE_SERVER="https://try.discourse.org"
 DISCOURSE_SERVER="https://discourse.mckblog.net"
 APPLICATION_NAME="forceapps"
 PRIVATE_KEY_FILE=/tmp/discourse-private.pem
@@ -18,6 +20,10 @@ url="$DISCOURSE_SERVER/user-api-key/new?application_name=${application_name}&cli
 
 echo -e "$url\n"
 echo -n "Enter Discourse response: "; read response
+
+echo
+echo Client_Id=\"${client_id}\"
+echo -n UserApiKey=
 echo "$response" | base64 -di | openssl pkeyutl -decrypt -inkey $PRIVATE_KEY_FILE | jq .key
 
 rm -f $PRIVATE_KEY_FILE $PUBLIC_KEY_FILE
