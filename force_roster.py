@@ -85,7 +85,7 @@ def do_edit():
 
 	if Action == "story":
 		if Story < 0:
-			Question = "Would you like to post your story too?"
+			Question = "Would you like to post your story?"
 			Buttons = f'<a class="button" href="{Forum}/new-topic?title=My+Story:+{UserName}&category={Slug}">Yes</a> <a class="button" href="{Forum}/t/{Topic}">Not now</a>'
 		else:
 			Question = "Looks like you've already posted your story, thanks!  Would you like to make any updates?"
