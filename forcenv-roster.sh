@@ -1,6 +1,6 @@
 Forum="https://discourse.mckblog.net"
 AppName="forceapps"
-Client_Id="a3f1bcfe32fbeb74adb5a490afc059d1ded627abb8cb43e45da5f4f5893320aa7b98c334c7fd4e76d90a5adf0d508227"
-UserApiKey="ae57ff4168b4b78cf811372f2aecc998"
+Client_Id=""
+UserApiKey=""
 Category="5"
 Slug="whos-who"
