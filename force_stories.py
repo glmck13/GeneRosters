@@ -4,7 +4,10 @@ import sys, os, json, time
 import requests
 from forcenv_roster import *
 
+API_MAX_PER_MINUTE = 15
 Headers = {"User-Api-Key" : UserApiKey, "Content-Type": "application/json", "Accept" : "application/json" }
+
+api_count = 0
 
 for q, r in RosterData.items():
 
@@ -20,10 +23,13 @@ for q, r in RosterData.items():
 			TableCols.append(k)
 	TableCols.append("MyStory")
 
+	api_count += 1
+	if (api_count % API_MAX_PER_MINUTE) == 0:
+		time.sleep(10)
 	try:
 		Body = requests.get(Forum + "/posts/{}.json".format(Post), headers=Headers).json()
 	except:
-		Body = {}
+		continue
 
 	skip = 2
 	for line in Body.get("raw", "").split('\n'):
@@ -44,11 +50,16 @@ for q, r in RosterData.items():
 		Table[row[0][1:]] = row[1:]
 
 	diff = False
+	skip = False
 	for u in Table.keys():
+		api_count += 1
+		if (api_count % API_MAX_PER_MINUTE) == 0:
+			time.sleep(10)
 		try:
 			Body = requests.get(Forum + "/search.json?q=My+Story:+@{}+#{}".format(u, Slug), headers=Headers).json()
 		except:
-			Body = {}
+			skip = True
+			break
 
 		if not Body.get("topics") or len(Body["topics"]) <= 0:
 			MyStory = "-"
@@ -60,9 +71,7 @@ for q, r in RosterData.items():
 		if old != MyStory:
 			diff = True
 
-	time.sleep(10)
-
-	if not diff:
+	if skip or not diff:
 		continue
 
 	raw = PostBody
@@ -75,9 +84,11 @@ for q, r in RosterData.items():
 
 	update = {}
 	update["post"] = {"raw" : raw, "edit_reason" : "Reconcile MyStory links"}
+
+	api_count += 1
+	if (api_count % API_MAX_PER_MINUTE) == 0:
+		time.sleep(10)
 	try:
 		Body = requests.put(Forum + "/posts/{}.json".format(Post), headers=Headers, json=update).json()
-		if "errors" in Body:
-			print("Failed to update post #{}: {}".format(Post, Body["errors"][0]))
 	except:
-		print("Failed to update post #{}".format(Post))
+		continue
