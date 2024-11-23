@@ -72,7 +72,7 @@ def do_edit():
 		#print(TableCols, TableRow, file=sys.stderr)
 
 		try:
-			Body = requests.get(Forum + "/search.json?q=@{}+#{}".format(UserName, Slug), headers=Headers).json()
+			Body = requests.get(Forum + "/search.json?q=My+Story:+@{}+#{}".format(UserName, Slug), headers=Headers).json()
 		except:
 			Body = {}
 

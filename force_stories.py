@@ -24,7 +24,6 @@ for q, r in RosterData.items():
 		Body = requests.get(Forum + "/posts/{}.json".format(Post), headers=Headers).json()
 	except:
 		Body = {}
-	#print(Body, file=sys.stderr)
 
 	skip = 2
 	for line in Body.get("raw", "").split('\n'):
@@ -47,7 +46,7 @@ for q, r in RosterData.items():
 	diff = False
 	for u in Table.keys():
 		try:
-			Body = requests.get(Forum + "/search.json?q=@{}+#{}".format(u, Slug), headers=Headers).json()
+			Body = requests.get(Forum + "/search.json?q=My+Story:+@{}+#{}".format(u, Slug), headers=Headers).json()
 		except:
 			Body = {}
 
@@ -61,6 +60,8 @@ for q, r in RosterData.items():
 		if old != MyStory:
 			diff = True
 
+	time.sleep(5)
+
 	if not diff:
 		continue
 
@@ -70,7 +71,7 @@ for q, r in RosterData.items():
 	for k, v in sorted(Table.items(), key=lambda x: x[0].casefold()):
 		raw += "|@" + k + "|" + "|".join(v) + "|\n"
 
-	print(q, raw)
+	print(raw)
 
 	update = {}
 	update["post"] = {"raw" : raw, "edit_reason" : "Reconcile MyStory links"}
