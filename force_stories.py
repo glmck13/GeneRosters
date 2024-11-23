@@ -60,7 +60,7 @@ for q, r in RosterData.items():
 		if old != MyStory:
 			diff = True
 
-	time.sleep(5)
+	time.sleep(10)
 
 	if not diff:
 		continue
