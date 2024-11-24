@@ -80,7 +80,7 @@ for q, r in RosterData.items():
 	for k, v in sorted(Table.items(), key=lambda x: x[0].casefold()):
 		raw += "|@" + k + "|" + "|".join(v) + "|\n"
 
-	print(raw)
+	print(q, raw)
 
 	update = {}
 	update["post"] = {"raw" : raw, "edit_reason" : "Reconcile MyStory links"}
