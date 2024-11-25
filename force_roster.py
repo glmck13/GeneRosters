@@ -85,10 +85,10 @@ def do_edit():
 
 	if Action == "story":
 		if Story < 0:
-			Question = "Would you like to post your story?"
+			Question = "Do you want to post your story?"
 			Buttons = f'<a class="button" href="{Forum}/new-topic?title=My+Story:+{UserName}&category={Slug}">Yes</a> <a class="button" href="{Forum}/t/{Topic}">Not now</a>'
 		else:
-			Question = "Looks like you've already posted your story, thanks!  Would you like to make any updates?"
+			Question = "Looks like you've already posted your story, thanks!  Do you want to make any updates?"
 			Buttons = f'<a class="button" href="{Forum}/t/{Story}">Yes</a> <a class="button" href="{Forum}/t/{Topic}">Not now</a>'
 		print(eval("f'''{}'''".format(GenericStory)))
 
@@ -146,7 +146,7 @@ def do_addrmv():
 			r = "?"
 
 		if c not in ("+", "-"):
-			print("Need to specify +/-: {}".format(x[0]), file=sys.stderr)
+			print("Prefix not +/-, ignoring: {}".format(x[0]), file=sys.stderr)
 			continue
 
 		if not RosterData.get(r):
@@ -196,7 +196,7 @@ def do_addrmv():
 				Reply = {}
 			#print(Reply, file=sys.stderr)
 
-		time.sleep(15)
+		#time.sleep(API_DELAY_SECS)
 
 def do_like():
 	global QueryString, Roster, UserName, Token, Action
@@ -206,30 +206,36 @@ def do_like():
 		Body = {}
 	#print(Body, file=sys.stderr)
 
+	clear = []
+	for watch in Body.get("notifications", []):
+		if watch["read"]:
+			continue
+		if watch["notification_type"] != NOTIFICATION_WATCH:
+			continue
+
+		print("?{}".format(watch["data"]["original_username"]))
+		clear.append(watch["id"])
+
 	for k, r in RosterData.items():
 		Roster = k
 		Topic = r["Topic"]
 		Post = r["Post"]
 		for like in Body.get("notifications", []):
-
-			if like["topic_id"] != Topic:
-				continue
-
-			if like["data"]["original_post_id"] != Post:
-				continue
-
 			if like["read"]:
+				continue
+			if like["notification_type"] != NOTIFICATION_LIKE:
+				continue
+			if like["topic_id"] != Topic or like["data"]["original_post_id"] != Post:
 				continue
 
 			print("+{}/{}".format(Roster, like["data"]["original_username"]))
+			clear.append(like["id"])
 
-			if not Dismiss:
-				continue
-
-			clear = {}
-			clear["id"] = like["id"]
+	if Dismiss:
+		for id in clear:
+			req = {"id": id}
 			try:
-				Reply = requests.put(Forum + "/notifications/mark-read.json", headers=Headers, json=clear).json()
+				Reply = requests.put(Forum + "/notifications/mark-read.json", headers=Headers, json=req).json()
 			except:
 				Reply = {}
 			#print(Reply, file=sys.stderr)

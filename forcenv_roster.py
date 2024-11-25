@@ -8,6 +8,11 @@ UserApiKey = ""
 Category= "5"
 Slug = "whos-who"
 
+NOTIFICATION_LIKE = 5
+NOTIFICATION_WATCH = 17
+API_DELAY_SECS = 60
+API_MAX_PER_MINUTE = 15
+
 RosterVars = {
 	"Roster": {"name": "roster", "default": ""},
 	"UserName": {"name": "username", "default": ""},

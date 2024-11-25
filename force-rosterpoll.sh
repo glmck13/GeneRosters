@@ -5,6 +5,9 @@ PATH=/var/www/bin:$PATH
 exec 3<> /var/www/tmp/force-roster.lock
 flock -x 3
 
-likes=$(force_roster.py)
+todo=$(force_roster.py)
 
-[ "$likes" ] && force_roster.py $likes
+if [ "$todo" ]; then
+	force_roster.py $todo
+	force_stories.py $todo
+fi

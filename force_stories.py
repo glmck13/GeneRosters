@@ -4,10 +4,17 @@ import sys, os, json, time
 import requests
 from forcenv_roster import *
 
-API_MAX_PER_MINUTE = 15
 Headers = {"User-Api-Key" : UserApiKey, "Content-Type": "application/json", "Accept" : "application/json" }
 
 api_count = 0
+
+watch = []
+if len(sys.argv) > 1:
+	for u in sys.argv[1:]:
+		if u[0] == '?':
+			watch.append(u[1:])
+	if not watch:
+		exit()
 
 for q, r in RosterData.items():
 
@@ -25,10 +32,14 @@ for q, r in RosterData.items():
 
 	api_count += 1
 	if (api_count % API_MAX_PER_MINUTE) == 0:
-		time.sleep(10)
+		time.sleep(API_DELAY_SECS)
 	try:
 		Body = requests.get(Forum + "/posts/{}.json".format(Post), headers=Headers).json()
 	except:
+		continue
+
+	if not Body.get("raw"):
+		print(Body)
 		continue
 
 	skip = 2
@@ -52,9 +63,12 @@ for q, r in RosterData.items():
 	diff = False
 	skip = False
 	for u in Table.keys():
+		if watch and u not in watch:
+			#print("Not watching {}, skip...".format(u))
+			continue
 		api_count += 1
 		if (api_count % API_MAX_PER_MINUTE) == 0:
-			time.sleep(10)
+			time.sleep(API_DELAY_SECS)
 		try:
 			Body = requests.get(Forum + "/search.json?q=My+Story:+@{}+#{}".format(u, Slug), headers=Headers).json()
 		except:
@@ -87,7 +101,7 @@ for q, r in RosterData.items():
 
 	api_count += 1
 	if (api_count % API_MAX_PER_MINUTE) == 0:
-		time.sleep(10)
+		time.sleep(API_DELAY_SECS)
 	try:
 		Body = requests.put(Forum + "/posts/{}.json".format(Post), headers=Headers, json=update).json()
 	except:
