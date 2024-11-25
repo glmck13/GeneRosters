@@ -196,7 +196,7 @@ def do_addrmv():
 				Reply = {}
 			#print(Reply, file=sys.stderr)
 
-		#time.sleep(API_DELAY_SECS)
+		time.sleep(API_DELAY_SECS/4)
 
 def do_like():
 	global QueryString, Roster, UserName, Token, Action
