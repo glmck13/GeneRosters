@@ -1,4 +1,4 @@
-Seed = "+turtleville"
+Seed = ""
 Dismiss = True
 Forum = "https://discourse.mckblog.net"
 Helper = "https://forceapps.mckblog.net"
