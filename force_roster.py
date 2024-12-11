@@ -41,6 +41,9 @@ def do_edit():
 	if Token != Validate:
 		Body = {}
 		Action = ""
+	elif not Topic or not Post:
+		Body = {}
+		Action = ""
 	else:
 		try:
 			Body = requests.get(Forum + "/posts/{}.json".format(Post), headers=Headers).json()
@@ -69,7 +72,7 @@ def do_edit():
 
 		TableRow = [UserName]
 		TableRow.extend(Table.get(UserName, ["" for n in range(len(TableCols)-1)]))
-		#print(TableCols, TableRow, file=sys.stderr)
+		#print(Table, TableCols, TableRow, file=sys.stderr)
 
 		try:
 			Body = requests.get(Forum + "/search.json?q=My+Story:+@{}+#{}".format(UserName, Slug), headers=Headers).json()

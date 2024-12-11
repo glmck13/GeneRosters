@@ -1,4 +1,4 @@
-Seed = ""
+Seed = "+turtleville"
 Dismiss = True
 Forum = "https://discourse.mckblog.net"
 Helper = "https://forceapps.mckblog.net"
@@ -31,7 +31,7 @@ GenericVars = {
 
 GenericStory = '''
 	<html>
-	<head><title>Who's Who?</title><link rel="stylesheet" href="/style.min.css"></head>
+	<head><title>My Story</title><link rel="stylesheet" href="/style.min.css"></head>
 	<body style="background-color: whitesmoke;"><h3>{Question}</h3><div class="two-third">{Buttons}</div></body>
 	</html>
 '''
@@ -41,20 +41,23 @@ GenericForm = '''
 		<select id="birthyear" name="birthyear">
 		<option value="-">Prefer not to enter</option>
 		</select>
-	<br><br><b>What is your gender?</b>
+	<br><br>
+	<b>What is your gender?</b>
 		<select id="gender" name="gender">
 		<option value="-">Prefer not to enter</option>
 		<option value="Female">Female</option>
 		<option value="Male">Male</option>
 		<option value="Non-binary">Non-binary</option>
 		</select>
-	<br><br><b>Are you transgender?</b>
+	<br><br>
+	<b>Are you transgender?</b>
 		<select id="trans" name="trans">
 		<option value="-">Prefer not to enter</option>
 		<option value="No">No</option>
 		<option value="Yes">Yes</option>
 		</select>
-	<br><br><b>Which of these best describes your race/ethnicity? (select as many that apply)</b>
+	<br><br>
+	<b>Which of these best describes your race/ethnicity? (select as many that apply)</b>
 		<select id="race" name="race" multiple>
 		<option value="-">Prefer not to enter</option>
 		<option value="AI/AN">American Indian, Alaska native or First Nations</option>
@@ -66,13 +69,16 @@ GenericForm = '''
 		<option value="White">White</option>
 		<option value="Other">Other</option>
 		</select>
-	<br><br><b>If you would like to share your cancer history, enter your cancer type(s) and your age at diagnosis:</b>
+	<br><br>
+	<b>If you would like to share your cancer history, enter your cancer type(s) and your age at diagnosis:</b>
 		<textarea rows="3" id="cancers" name="cancers">{Cancers}</textarea>
-	<br><br><label>
+	<br><br>
+	<label>
 		<input type="checkbox" id="remove" name="remove">
 		<span class="checkable">Please remove me from the list, thanks</span>
 	</label>
-	<br><br><input type="submit" name="action" value="Submit">
+	<br><br>
+	<input type="submit" name="action" value="Submit">
 	<input type="hidden" name="username" value="{UserName}">
 	<input type="hidden" name="token" value="{Token}">
 	<input type="hidden" name="roster" value="{Roster}">
@@ -115,12 +121,14 @@ GenericScript = '''
 	}}
 '''
 
+GenericPost = "To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n"
+
 RosterData = {
 	"lynch": {
 		"Topic":	10,
 		"Post": 	11,
 		"PostSubj": 	"Lynch syndrome roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your Lynch info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your Lynch entry. Thanks again for sharing your info with the group.",
 		"FormVars": {
@@ -155,10 +163,10 @@ RosterData = {
 	},
 
 	"brca1": {
-		"Topic":	15,
-		"Post": 	16,
+		"Topic":	104,
+		"Post": 	108,
 		"PostSubj": 	"BRCA1 mutation roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your BRCA1 info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your BRCA1 entry. Thanks again for sharing your info with the group.",
 		"FormVars":	GenericVars,
@@ -166,10 +174,10 @@ RosterData = {
 	},
 
 	"brca2": {
-		"Topic":	38,
-		"Post": 	39,
+		"Topic":	108,
+		"Post": 	112,
 		"PostSubj": 	"BRCA2 mutation roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your BRCA2 info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your BRCA2 entry. Thanks again for sharing your info with the group.",
 		"FormVars":	GenericVars,
@@ -177,10 +185,10 @@ RosterData = {
 	},
 
 	"bard1": {
-		"Topic":	37,
-		"Post": 	38,
+		"Topic":	102,
+		"Post": 	106,
 		"PostSubj": 	"BARD1 mutation roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your BARD1 info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your BARD1 entry. Thanks again for sharing your info with the group.",
 		"FormVars":	GenericVars,
@@ -188,10 +196,10 @@ RosterData = {
 	},
 
 	"brip1": {
-		"Topic":	32,
-		"Post": 	33,
+		"Topic":	105,
+		"Post": 	109,
 		"PostSubj": 	"BRIP1 mutation roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your BRIP1 info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your BRIP1 entry. Thanks again for sharing your info with the group.",
 		"FormVars":	GenericVars,
@@ -202,7 +210,7 @@ RosterData = {
 		"Topic":	36,
 		"Post": 	37,
 		"PostSubj": 	"APC mutation roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your APC info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your APC entry. Thanks again for sharing your info with the group.",
 		"FormVars":	GenericVars,
@@ -213,7 +221,7 @@ RosterData = {
 		"Topic":	26,
 		"Post": 	27,
 		"PostSubj": 	"ATM mutation roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your ATM info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your ATM entry. Thanks again for sharing your info with the group.",
 		"FormVars":	GenericVars,
@@ -224,7 +232,7 @@ RosterData = {
 		"Topic":	42,
 		"Post": 	43,
 		"PostSubj": 	"TP53 mutation roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your TP53 info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your TP53 entry. Thanks again for sharing your info with the group.",
 		"FormVars":	GenericVars,
@@ -235,7 +243,7 @@ RosterData = {
 		"Topic":	41,
 		"Post": 	42,
 		"PostSubj": 	"RAD51C mutation roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your RAD51C info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your RAD51C entry. Thanks again for sharing your info with the group.",
 		"FormVars":	GenericVars,
@@ -243,10 +251,10 @@ RosterData = {
 	},
 
 	"rad51d": {
-		"Topic":	34,
-		"Post": 	35,
+		"Topic":	112,
+		"Post": 	116,
 		"PostSubj": 	"RAD51D mutation roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your RAD51D info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your RAD51D entry. Thanks again for sharing your info with the group.",
 		"FormVars":	GenericVars,
@@ -257,7 +265,7 @@ RosterData = {
 		"Topic":	40,
 		"Post": 	41,
 		"PostSubj": 	"MUTYH mutation roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your MUTYH info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your MUTYH entry. Thanks again for sharing your info with the group.",
 		"FormVars":	GenericVars,
@@ -265,10 +273,10 @@ RosterData = {
 	},
 
 	"hoxb13": {
-		"Topic":	39,
-		"Post": 	40,
+		"Topic":	103,
+		"Post": 	107,
 		"PostSubj": 	"HOXB13 mutation roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your HOXB13 info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your HOXB13 entry. Thanks again for sharing your info with the group.",
 		"FormVars":	GenericVars,
@@ -279,7 +287,7 @@ RosterData = {
 		"Topic":	43,
 		"Post": 	44,
 		"PostSubj": 	"PTEN mutation roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your PTEN info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your PTEN entry. Thanks again for sharing your info with the group.",
 		"FormVars":	GenericVars,
@@ -290,7 +298,7 @@ RosterData = {
 		"Topic":	31,
 		"Post": 	32,
 		"PostSubj": 	"PALB2 mutation roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your PALB2 info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your PALB2 entry. Thanks again for sharing your info with the group.",
 		"FormVars":	GenericVars,
@@ -298,10 +306,10 @@ RosterData = {
 	},
 
 	"stk11": {
-		"Topic":	35,
-		"Post": 	36,
+		"Topic":	111,
+		"Post": 	115,
 		"PostSubj": 	"STK11 mutation roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your STK11 info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your STK11 entry. Thanks again for sharing your info with the group.",
 		"FormVars":	GenericVars,
@@ -312,7 +320,7 @@ RosterData = {
 		"Topic":	30,
 		"Post": 	31,
 		"PostSubj": 	"NBN mutation roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your NBN info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your NBN entry. Thanks again for sharing your info with the group.",
 		"FormVars":	GenericVars,
@@ -320,10 +328,10 @@ RosterData = {
 	},
 
 	"cdk4": {
-		"Topic":	29,
-		"Post": 	30,
+		"Topic":	109,
+		"Post": 	113,
 		"PostSubj": 	"CDK4 mutation roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your CDK4 info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your CDK4 entry. Thanks again for sharing your info with the group.",
 		"FormVars":	GenericVars,
@@ -331,10 +339,10 @@ RosterData = {
 	},
 
 	"cdkn2a": {
-		"Topic":	33,
-		"Post": 	34,
+		"Topic":	107,
+		"Post": 	111,
 		"PostSubj": 	"CDKN2A mutation roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your CDKN2A info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your CDKN2A entry. Thanks again for sharing your info with the group.",
 		"FormVars":	GenericVars,
@@ -342,10 +350,10 @@ RosterData = {
 	},
 
 	"cdh1": {
-		"Topic":	28,
-		"Post": 	29,
+		"Topic":	106,
+		"Post": 	110,
 		"PostSubj": 	"CDH1 mutation roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your CDH1 info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your CDH1 entry. Thanks again for sharing your info with the group.",
 		"FormVars":	GenericVars,
@@ -353,10 +361,10 @@ RosterData = {
 	},
 
 	"chek2": {
-		"Topic":	25,
-		"Post": 	26,
+		"Topic":	110,
+		"Post": 	114,
 		"PostSubj": 	"CHEK2 mutation roster",
-		"PostBody": 	"To be included in this roster, simply click the 'Like' :heart: button on this post. Later you'll be sent a link to populate the other fields in the table if you want.  You can update or delete your info at any time. Feel free to message @moderators if you have any questions or concerns. Thanks for participating!\n",
+		"PostBody":	GenericPost,
 		"MsgSubj": 	"Link to edit your CHEK2 info",
 		"MsgBody": 	"Use [this link]({}) to update or delete your CHEK2 entry. Thanks again for sharing your info with the group.",
 		"FormVars":	GenericVars,
