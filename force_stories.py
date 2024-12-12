@@ -30,6 +30,9 @@ for q, r in RosterData.items():
 			TableCols.append(k)
 	TableCols.append("MyStory")
 
+	if not Topic or not Post:
+		continue
+
 	api_count += 1
 	if (api_count % API_MAX_PER_MINUTE) == 0:
 		time.sleep(API_DELAY_SECS)
