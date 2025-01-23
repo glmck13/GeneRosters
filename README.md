@@ -10,6 +10,9 @@ The Ubuntu host functions as an application server in the architecture, providin
 
 ## Discourse server config
 
+### Site settings
++ Increase the value of "max mentions per post" to a suitable value (e.g. 500)
+
 ### Create Category
 + Create a category named "Gene Mutation Rosters" or something similar on the Discourse server to store the rosters. Be sure to check "Allow unlimited owner edits on first post" under Settings so rosters can be updated indefinitely.
 + Next, click on the category name in your browser.  It will be formatted as https://sitename/c/slug/id.  Make a note of the _slug_ and _id_, since you'll need to save these later within the forcenv file on the app server.
